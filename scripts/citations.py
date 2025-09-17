@@ -173,12 +173,14 @@ def get_citation_tags_from_config(filepath):
     special_flag = False
     for setting in settings_on:
         if setting in special_tags:
-            print(f"You used {setting}. Please consider citing {special_tags[setting]}.")
+            if not special_flag:
+                print("TODO List")
+                print("---------")
+            print(f" - You used {setting}. Please consider citing {special_tags[setting]}.")
             special_flag = True
-        if not setting in tags_from_keywords:
-            continue
-        for tag in tags_from_keywords[setting]:
-            citation_tags.add(tag)
+        if setting in tags_from_keywords:
+            for tag in tags_from_keywords[setting]:
+                citation_tags.add(tag)
     
     # Add some extra spacing so the acknowledgement statement stands out
     if special_flag:
