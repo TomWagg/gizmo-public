@@ -161,10 +161,11 @@ def get_citation_tags_from_config(filepath):
         # go through each line
         for line in file:
             # find any lines that aren't blank/comments
-            if not line.strip().startswith("#") and len(line.strip()) > 0:
+            # Need to parse inline comments too. '#' is guaranteed to introduce a comment
+            setting = line.strip().split("#")[0].strip()
+            if len(setting) > 0:
                 # take just the initial setting name, remove anything after an equals sign
-                setting = line.strip().split(" ")[0]
-                setting = setting.split("=")[0] if "=" in setting else setting
+                setting = setting.split("=")[0].strip() if "=" in setting else setting
                 settings_on.add(setting)
 
     # track which tags are relevant based on the settings    
