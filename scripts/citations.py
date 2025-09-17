@@ -25,7 +25,7 @@ tags_from_keywords = {
     "BH_WIND_SPAWN_SET_BFIELD_POLTOR": ["Su2021"],
     "BH_WIND_SPAWN_SET_JET_PRECESSION": ["Su2021"],
     "CHIMES": ["Richings2014", "Richings2014a"],
-    "CONDUCTION": ["Hopkins2016c"],
+    "CONDUCTION": ["Hopkins2017"],
     "CONDUCTION_SPITZER": ["Su2017"],
     "COOLING": ["Hopkins2017"],
     "COOL_LOW_TEMPERATURES": ["Hopkins2017", "Hopkins2022d"],
