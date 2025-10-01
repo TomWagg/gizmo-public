@@ -174,6 +174,7 @@ def get_citation_tags_from_config(filepath):
     for setting in settings_on:
         if setting in special_tags:
             if not special_flag:
+                print()
                 print("TODO List")
                 print("---------")
             print(f" - You used {setting}. Please consider citing {special_tags[setting]}.")
@@ -200,4 +201,10 @@ if __name__ == "__main__":
     if len(citation_tags) > 0:
         acknowledgement += " GIZMO simulations in this study were run with additional features, which are based on a variety of other works \\citep{" + ", ".join(citation_tags) + "}."
 
-    print(acknowledgement)
+    # print the acknowledgement
+    BOLD, RESET, GREEN, BLUE = "\033[1m", "\033[0m", "\033[0;32m", "\033[0;34m"
+    print("You can paste this acknowledgement into the relevant section of your manuscript:")
+    print(f"{BOLD}{GREEN}{acknowledgement}{RESET}")
+
+    # either print bibtex to terminal or save to file
+    print(f"The associated bibtex can be found in {GREEN}scripts/gizmo_sources.bib{RESET}, or online at {BLUE}https://github.com/pfhopkins/gizmo-public/blob/master/scripts/gizmo_sources.bib{RESET}")
